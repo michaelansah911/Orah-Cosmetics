@@ -16,9 +16,12 @@
 
   <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script> <!-- Moved to head for proper loading -->
   <script>
-    (function() {
+    // Check if emailjs is loaded
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS library is not loaded. Please check the script URL or network connection.');
+    } else {
       emailjs.init("_O1GiHCgJ7gNP6ik0");
-    })();
+    }
   </script>
   <!-- Removed unused preloads -->
   <link rel="preload" as="image" href="./assets/images/logo.png">
