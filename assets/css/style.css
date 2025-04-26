@@ -477,6 +477,11 @@ body {
   color: var(--black_70);
 }
 
+.header-action-btn .btn-badge {
+  background-color: var(--white);
+  color: var(--black);
+}
+
 /*-----------------------------------*\
   #MOBILE NAVBAR
 \*-----------------------------------*/

@@ -428,9 +428,10 @@ body {
 .header-action-btn {
   font-size: 28px;
   transition: var(--transition-1);
+  color: var(--white);
 }
 
-.header-action-btn:is(:hover, :focus) { color: var(--black_70); }
+.header-action-btn:is(:hover, :focus) { color: var(--white); }
 
 
 
@@ -1296,8 +1297,8 @@ body {
     position: absolute;
     top: 0;
     right: -10px;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
     font-size: var(--fs-9);
     min-width: 18px;
     height: 18px;

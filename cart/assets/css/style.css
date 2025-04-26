@@ -471,10 +471,16 @@ body {
 .header-action-btn {
   font-size: 28px;
   transition: var(--transition-1);
+  color: var(--white);
 }
 
 .header-action-btn:is(:hover, :focus) {
-  color: var(--black_70);
+  color: var(--white);
+}
+
+.header-action-btn .btn-badge {
+  background-color: var(--white);
+  color: var(--white);
 }
 
 /*-----------------------------------*\
