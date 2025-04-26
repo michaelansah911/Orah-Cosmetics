@@ -56,7 +56,7 @@ const cart = () => {
                     <div class="name">
                     ${info.name}
                     </div>
-                    <div class="totalPrice">$${info.price * item.quantity}</div>
+                    <div class="totalPrice">GHC${info.price * item.quantity}</div>
                     <div class="quantity">
                         <span class="minus" data-id="${info.id}"><</span>
                         <span>${item.quantity}</span>

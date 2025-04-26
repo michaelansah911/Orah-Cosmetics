@@ -68,7 +68,7 @@ const initApp = () => {
              <img src="${product.image}">
          </a>
          <h2>${product.name}</h2>
-         <div class="price">$${product.price}</div>
+         <div class="price">GHC${product.price}</div>
          <button 
              class="addCart" 
              data-id='${product.id}'>

@@ -67,7 +67,7 @@ const initApp = () => {
   let detail = document.querySelector(".detail");
   detail.querySelector(".image img").src = thisProduct.image;
   detail.querySelector(".name").innerText = thisProduct.name;
-  detail.querySelector(".price").innerText = "$" + thisProduct.price;
+  detail.querySelector(".price").innerText = "GHC" + thisProduct.price; // Updated to display prices in GHC
   detail.querySelector(".description").innerText =
     "$" + thisProduct.description;
   detail.querySelector(".addCart").dataset.id = thisProduct.id;
