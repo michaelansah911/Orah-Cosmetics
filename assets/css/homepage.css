@@ -1538,3 +1538,39 @@ body {
     gap: 4rem 2rem;
   }
 }
+
+/*-----------------------------------*\
+  #REVIEWS
+\*-----------------------------------*/
+
+.reviews {
+  text-align: center;
+  background-color: var(--cultured-1);
+  padding: var(--section-padding);
+}
+
+.reviews .section-title {
+  margin-bottom: 40px;
+}
+
+.review-card {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-1);
+  text-align: left;
+  max-width: 300px;
+  margin: auto;
+}
+
+.review-text {
+  font-size: var(--fs-7);
+  color: var(--gray-web);
+  margin-bottom: 10px;
+}
+
+.review-author {
+  font-size: var(--fs-8);
+  font-weight: var(--fw-600);
+  color: var(--hoockers-green);
+}
