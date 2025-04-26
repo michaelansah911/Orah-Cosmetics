@@ -229,7 +229,7 @@
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            emailjs.sendForm('service_7n7ecmb', 'template_z5otbe8', this)
+            emailjs.sendForm('service_7n7ecmb', '__ejs-test-mail-service__', this) // Updated Template ID
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     
