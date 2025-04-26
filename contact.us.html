@@ -14,6 +14,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script> <!-- Moved to head for proper loading -->
+  <script>
+    (function() {
+      emailjs.init("_O1GiHCgJ7gNP6ik0");
+    })();
+  </script>
+  <!-- Removed unused preloads -->
   <link rel="preload" as="image" href="./assets/images/logo.png">
   <link rel="preload" as="image" href="./assets/images/hero-banner-1.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-banner-2.jpg">
