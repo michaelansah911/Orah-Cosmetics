@@ -14,15 +14,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script> <!-- Moved to head for proper loading -->
-  <script>
-    // Check if emailjs is loaded
-    if (typeof emailjs === 'undefined') {
-      console.error('EmailJS library is not loaded. Please check the script URL or network connection.');
-    } else {
-      emailjs.init("_O1GiHCgJ7gNP6ik0");
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script> <!-- Moved to head for proper loading -->
+
+   
+
   <!-- Removed unused preloads -->
   <link rel="preload" as="image" href="./assets/images/logo.png">
   <link rel="preload" as="image" href="./assets/images/hero-banner-1.jpg">
@@ -230,7 +225,7 @@
     <p id="success-message" style="display: none; color: green;">Your message has been sent successfully!</p>
     <p id="error-message" style="display: none; color: red;">Oops! Something went wrong. Please try again.</p>
     
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+    
     <script type="text/javascript">
         (function(){
             emailjs.init("_O1GiHCgJ7gNP6ik0");
@@ -239,7 +234,7 @@
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            emailjs.sendForm('service_7n7ecmb', '__ejs-test-mail-service__', this) // Updated Template ID
+            emailjs.sendForm('service_7n7ecmb', 'template_z5otbe8', this) // Updated Template ID
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     
