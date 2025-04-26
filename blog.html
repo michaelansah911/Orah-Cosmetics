@@ -378,6 +378,39 @@ Conclusion : Orah Cosmetics is not just a beauty brand—it’s a confidence boo
   <script src="./assets/js/homepage.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelector('.comment-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form values
+      const name = document.getElementById('comment-name').value;
+      const email = document.getElementById('comment-email').value;
+      const message = document.getElementById('comment-message').value;
+
+      // Create a new comment element
+      const commentItem = document.createElement('li');
+      commentItem.classList.add('comment-item');
+
+      const commentAuthor = document.createElement('p');
+      commentAuthor.classList.add('comment-author');
+      commentAuthor.textContent = name;
+
+      const commentText = document.createElement('p');
+      commentText.classList.add('comment-text');
+      commentText.textContent = message;
+
+      commentItem.appendChild(commentAuthor);
+      commentItem.appendChild(commentText);
+
+      // Append the new comment to the comments list
+      document.querySelector('.comments-list').appendChild(commentItem);
+
+      // Clear the form fields
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-email').value = '';
+      document.getElementById('comment-message').value = '';
+    });
+  </script>
 
 </body>
 
