@@ -68,8 +68,8 @@ const initApp = () => {
   detail.querySelector(".image img").src = thisProduct.image;
   detail.querySelector(".name").innerText = thisProduct.name;
   detail.querySelector(".price").innerText = "GHC" + thisProduct.price; // Updated to display prices in GHC
-  detail.querySelector(".description").innerText =
-    "$" + thisProduct.description;
+  thisProduct.description = thisProduct.description.replace('$', ''); // Updated to remove $ from descriptions
+  detail.querySelector(".description").innerText = thisProduct.description;
   detail.querySelector(".addCart").dataset.id = thisProduct.id;
   detail
     .querySelector("#paystack-button")
@@ -81,9 +81,9 @@ const initApp = () => {
     newProduct.classList.add("item");
     newProduct.innerHTML = `<a href="./detail.html?id=${product.id}">
             <img src="${product.image}">
+            <h2>${product.name}</h2>
+            <div class="price">GHC${product.price}</div>
         </a>
-        <h2>${product.name}</h2>
-        <div class="price">$${product.price}</div>
         <button 
             class="addCart" 
             data-id='${product.id}'>
