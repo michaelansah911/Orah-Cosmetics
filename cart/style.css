@@ -26,6 +26,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
+    z-index: 999; /* Ensure the header is below the cart slide */
 }
 .icon-cart{
     position: relative;
@@ -58,6 +59,7 @@ header{
     bottom: 0;
     display: grid;
     grid-template-rows: 70px 1fr 70px;
+    z-index: 1000; /* Ensure the cart slide appears above other elements */
 }
 .cartTab h1{
     padding: 20px;
@@ -129,36 +131,73 @@ body.activeTabCart .container{
 }
 /*  */
 
-.listCart .item img{
-    width: 100%;
-}
-.listCart .item{
+/* Improved styling for cart items */
+.listCart .item {
     display: grid;
-    grid-template-columns: 70px 150px 50px 1fr;
+    grid-template-columns: 70px 1fr 50px 1fr;
     gap: 10px;
-    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
     align-items: center;
 }
-.listCart .quantity span{
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background-color: #eee;
-    border-radius: 50%;
+.listCart .item .image img {
+    width: 100%;
+    border-radius: 5px;
+}
+.listCart .item .name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+.listCart .item .totalPrice {
+    font-size: 0.9rem;
     color: #555;
-    cursor: pointer;
 }
-.listCart .quantity span:nth-child(2){
-    background-color: transparent;
-    color: #eee;
-    cursor: auto;
-}
-.listCart .quantity{
+.listCart .item .quantity {
     display: flex;
+    align-items: center;
+    gap: 5px;
 }
-.listCart .item:nth-child(even){
-    background-color: #eee1;
+.listCart .item .quantity span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #E8BC0E;
+    border-radius: 50%;
+    color: #353432;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+.listCart .item .quantity span:hover {
+    background-color: #d1a90b;
+}
+.listCart .item .quantity span:nth-child(2) {
+    background-color: #fff; /* Ensure visibility */
+    color: #353432; /* Dark text for contrast */
+    font-size: 1.2rem; /* Larger font size */
+    font-weight: bold; /* Make the number stand out */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: default;
+}
+
+.listCart .quantity span:nth-child(1) {
+    content: "-"; /* Minus on the left */
+    text-align: center;
+}
+
+.listCart .quantity span:nth-child(3) {
+    content: "+"; /* Plus on the right */
+    text-align: center;
+}
+
 /*  */
 
 /* detail page */
