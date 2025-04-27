@@ -538,6 +538,14 @@ body {
 
 .hero .scrollbar-item { min-width: 100%; }
 
+.hero-title {
+  color: white; /* Set the hero title color to white */
+}
+
+.hero-text {
+  color: black; /* Set the hero text color to black */
+}
+
 
 
 
