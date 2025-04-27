@@ -34,12 +34,35 @@ const cart = () => {
     addCartToHTML();
   };
 
+  const calculateTotalAmount = () => {
+    return cart.reduce((total, item) => {
+      let positionProduct = products.findIndex(
+        (value) => value.id == item.product_id
+      );
+      let info = products[positionProduct];
+      return total + info.price * item.quantity;
+    }, 0);
+  };
+
+  const updateGrandTotal = () => {
+    const totalAmount = calculateTotalAmount();
+    const grandTotalElement = document.querySelector(".grandTotal");
+    if (grandTotalElement) {
+      grandTotalElement.innerText = `Grand Total: GHC${totalAmount}`;
+    } else {
+      const totalDiv = document.createElement("div");
+      totalDiv.classList.add("grandTotal");
+      totalDiv.innerText = `Grand Total: GHC${totalAmount}`;
+      listCartHTML.parentElement.appendChild(totalDiv);
+    }
+  };
+
   const addCartToHTML = () => {
     listCartHTML.innerHTML = "";
     let totalQuantity = 0;
     if (cart.length > 0) {
       cart.forEach((item) => {
-        totalQuantity = totalQuantity + item.quantity;
+        totalQuantity += item.quantity;
         let newItem = document.createElement("div");
         newItem.classList.add("item");
         newItem.dataset.id = item.product_id;
@@ -51,21 +74,29 @@ const cart = () => {
         listCartHTML.appendChild(newItem);
         newItem.innerHTML = `
                 <div class="image">
-                        <img src="${info.image}">
-                    </div>
-                    <div class="name">
+                    <img src="${info.image}" alt="${info.name}">
+                </div>
+                <div class="name">
                     ${info.name}
-                    </div>
-                    <div class="totalPrice">GHC${info.price * item.quantity}</div>
-                    <div class="quantity">
-                        <span class="minus" data-id="${info.id}"><</span>
-                        <span>${item.quantity}</span>
-                        <span class="plus" data-id="${info.id}">></span>
-                    </div>
-                `;
+                </div>
+                <div class="totalPrice">Subtotal: GHC${info.price * item.quantity}</div>
+                <div class="quantity">
+                    <span class="minus" data-id="${info.id}">-</span>
+                    <span>${item.quantity}</span>
+                    <span class="plus" data-id="${info.id}">+</span>
+                </div>
+                <button class="remove" data-id="${info.id}">
+                    <i class="fa fa-trash"></i> Remove
+                </button>
+            `;
       });
+    } else {
+      listCartHTML.innerHTML = "<p>Your cart is empty.</p>";
     }
     iconCartSpan.innerText = totalQuantity;
+
+    // Update grand total
+    updateGrandTotal();
   };
 
   document.addEventListener("click", (event) => {
@@ -90,6 +121,11 @@ const cart = () => {
       case buttonClick.classList.contains("plus"):
         quantity = cart[positionProductInCart].quantity + 1;
         setProductInCart(idProduct, quantity);
+        break;
+      case buttonClick.classList.contains("remove"):
+        cart.splice(positionProductInCart, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        addCartToHTML();
         break;
       default:
         break;
