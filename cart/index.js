@@ -84,10 +84,11 @@ const handlePaystackPayment = () => {
     return `${date.getTime()}`;
   };
 
+  const totalAmount = calculateTotalAmount();
   const paymentData = {
     key: "pk_live_180d6fca1d40df96aeff19de623b3f3b5b165186",
     email: "mike@gmail.com",
-    amount: 5000,
+    amount: totalAmount * 100, // Convert to kobo for Paystack
     currency: "GHS",
     ref: generateReference(),
     callback: (response) => {
