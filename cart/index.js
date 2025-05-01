@@ -85,7 +85,7 @@ const handlePaystackPayment = () => {
   };
 
   const paymentData = {
-    key: "pk_test_aa32299406d67f1fd4df8e5780ce23f88f7211b9",
+    key: "pk_live_180d6fca1d40df96aeff19de623b3f3b5b165186",
     email: "mike@gmail.com",
     amount: 5000,
     currency: "GHS",
