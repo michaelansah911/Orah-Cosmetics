@@ -78,6 +78,14 @@ const initApp = () => {
   });
 };
 
+const calculateTotalAmount = () => {
+  return document
+    .querySelector(".cartTab")
+    .querySelector(".grandTotal")
+    .textContent.split(" ")[2]
+    .slice(3);
+};
+
 const handlePaystackPayment = () => {
   const generateReference = () => {
     const date = new Date();
