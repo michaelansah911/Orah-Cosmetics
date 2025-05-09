@@ -68,7 +68,7 @@ const initApp = () => {
   detail.querySelector(".image img").src = thisProduct.image;
   detail.querySelector(".name").innerText = thisProduct.name;
   detail.querySelector(".price").innerText = "GHC" + thisProduct.price; // Updated to display prices in GHC
-  thisProduct.description = thisProduct.description.replace('$', ''); // Updated to remove $ from descriptions
+  thisProduct.description = thisProduct.description.replace("$", ""); // Updated to remove $ from descriptions
   detail.querySelector(".description").innerText = thisProduct.description;
   detail.querySelector(".addCart").dataset.id = thisProduct.id;
   detail
@@ -91,6 +91,14 @@ const initApp = () => {
         </button>`;
     listProductHTML.appendChild(newProduct);
   });
+};
+
+const calculateTotalAmount = () => {
+  return document
+    .querySelector(".cartTab")
+    .querySelector(".grandTotal")
+    .textContent.split(" ")[2]
+    .slice(3);
 };
 
 const handlePaystackPayment = () => {
