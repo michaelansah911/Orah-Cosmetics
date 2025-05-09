@@ -803,6 +803,17 @@
     });
   </script>
 
+  <script>
+    window.onload = function() {
+      const popupContainer = document.querySelector('.popup-container');
+      popupContainer.style.display = 'none'; // Ensure popup is hidden initially
+
+      setTimeout(function() {
+        popupContainer.style.display = 'flex'; // Show popup after 3 seconds
+      }, 3000);
+    };
+  </script>
+
 </body>
 
 </html>
